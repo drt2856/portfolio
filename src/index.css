@@ -8,15 +8,81 @@
   color: white;
 }
 
-.wall{
+.wall {
   min-height: 400px;
-  background-image: url('./assets/wall.jpg');
-  background-size: cover; /* Ajusta la imagen para cubrir todo el div */
-  background-position: center; /* Centra la imagen en el div */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  
+  background-image: url(./assets/wall.jpg);
+  background-size: cover;
+  /* Ajusta la imagen para cubrir todo el div */
+  background-position: center;
+  /* Centra la imagen en el div */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+
 }
 
-.blue-shadow{
+.blue-shadow {
   box-shadow: 0px 3px 10px rgb(43 74 226 / 73%);
+}
+
+.resaltar:hover {
+  box-shadow: 0px 3px 30px rgba(216, 217, 223, 0.73);
+}
+
+.card {
+  /* Estilos para la tarjeta */
+  transition: transform 0.3s;
+  /* Agrega una transición suave */
+}
+
+.card:hover {
+  transform: scale(1.1);
+  /* Aumenta el tamaño en un 10% al pasar el ratón */
+}
+
+.all {
+  display: flex;
+  justify-content: space-around;
+}
+
+.descubrir {
+  position: relative;
+}
+
+.descubrir:hover .show-on-hover {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.descubrir:active .show-on-hover {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+
+.show-on-hover {
+  position: absolute;
+  top: 80px;
+  left: 20px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.bg-litle-blue {
+  background: rgb(43 74 226 / 73%);
+}
+
+.link-contact {
+  font-size: 35px;
+  text-align: center;
+}
+
+.back {
+  border-radius: 50%;
+  position: fixed;
+  width: 50px;
+  background-color: red;
 }
