@@ -7,17 +7,25 @@
   background-color: rgba(137, 43, 226, 0.733);
   color: white;
 }
+#root{
+  background: linear-gradient(to bottom right, rgb(43 74 226 / 73%),rgba(0, 0, 255, 0.021),rgb(43 74 226 / 73%),rgba(0, 0, 255, 0.021), rgb(43 74 226 / 73%));
+}
 
 .wall {
   min-height: 400px;
-  background-image: url(./assets/wall.jpg);
+  background-image: url(https://wallpapercave.com/wp/wp13535895.jpg);
   background-size: cover;
-  /* Ajusta la imagen para cubrir todo el div */
+  /* Ajusta la imagen para cubrir todo el div background: linear-gradient(to bottom right, rgb(43 74 226 / 73%),blue, red);;*/
   background-position: center;
   /* Centra la imagen en el div */
   background-repeat: no-repeat;
   /* Evita que la imagen se repita */
 
+}
+.wall > div{
+  background-color: rgba(0, 55, 255, 0.145);
+  display: block;
+  padding: 20px;
 }
 
 .blue-shadow {
@@ -82,7 +90,11 @@
 
 .back {
   border-radius: 50%;
+  z-index: 100;
   position: fixed;
+  bottom: 20px;
+  right: 25px;
   width: 50px;
-  background-color: red;
+  padding: 10px;
+  font-size: larger;
 }

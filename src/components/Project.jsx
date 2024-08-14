@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 
 export function Project({photo_src,title,description,tecnologies_src,link}){
+  
     return(
-        <div className="card col-11 col-sm-4 col-md-3 m-2 blue-shadow resaltar " >
+        <div className="card col-11 col-sm-6 col-md-3 m-2 blue-shadow resaltar " style={{maxWidth:"350px", minWidth:"300px"}} >
            {photo_src}
             <div className="card-body">
               <h5 className="card-title">

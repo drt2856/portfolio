@@ -1,7 +1,10 @@
 import { send } from "emailjs-com";
 import { useState } from "react";
+import { useLanguage } from "../hooks/UseLanguage";
+import { LANGUAGES_SUPORTED } from "../context/lenguageContext";
 
 export function Contact() {
+  const { language } = useLanguage();
 
   const [formData, setFormData] = useState({
     from_name: '',
@@ -10,34 +13,36 @@ export function Contact() {
     reply_to: '',
   });
 
-  const [isSending, setIsSending] = useState(false);
-
-const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSending(true)
+    const dataToSend = { ...formData, message: formData.message + " Este correo viene de :" + formData.reply_to }
     send(
       'service_una8dbe', // ID de tu servicio de EmailJS
       'template_mqxd6ai', // ID de la plantilla de correo
-      formData, // Datos del formulario
+      dataToSend, // Datos del formulario
       '7yF4MvQAkzauZK_AJ' // Tu User ID de EmailJS
     )
       .then((response) => {
         console.log('Correo enviado:', response);
-        alert("Correo enviado con exito")
+        alert(language === LANGUAGES_SUPORTED.ESPAÑOL ?"Correo enviado con exito":"Mail sent successfully")
       })
       .catch((error) => {
         console.error('Error al enviar el correo:', error);
-        alert("Ha ocurrido un error")
+        alert(language === LANGUAGES_SUPORTED.ESPAÑOL ?"Ha ocurrido un error":"An error has ocurred")
       });
-      setIsSending(false)
   };
   return <section className="bg-litle-blue p-5" id="contactos">
-    <div className="col-10 col-sm-6 mx-auto">
-      <h2 className="h1 text-center">Contacta conmigo para obtener mis servicios</h2>
+    <div className="col-12 col-sm-6 mx-auto">
+      <h2 className="h1 text-center">
+        {language === LANGUAGES_SUPORTED.ESPAÑOL ?
+          "Contacta conmigo para obtener mis servicios"
+          :
+          "Contact me to get my services"
+        }</h2>
       <div className="all">
 
         <a className='m-2 btn link-contact ' href="https://github.com/drt2856">
@@ -53,25 +58,33 @@ const handleChange = (e) => {
       </div>
 
       <form className="border border-black rounded p-3 row" onSubmit={handleSubmit}>
-        <div className="all">
-          <input
-            className="col-12 col-sm-6 m-1 p-2"
-            type="text"
-            name="from_name"
-            placeholder="Tu nombre"
-            value={formData.from_name}
-            onChange={handleChange}
-          />
 
-          <input
-            className="col-12 col-sm-6 m-1 p-2"
-            type="email"
-            name="reply_to"
-            placeholder="Tu correo electrónico"
-            value={formData.reply_to}
-            onChange={handleChange}
-          />
-        </div>
+        <input
+          className="col-12 col-sm-6 my-1 p-2"
+          type="text"
+          name="from_name"
+          placeholder={language === LANGUAGES_SUPORTED.ESPAÑOL ?
+            "Tu nombre"
+            :
+            "Your name"
+          }
+          value={formData.from_name}
+          onChange={handleChange}
+        />
+
+        <input
+          className="col-12 col-sm-6 my-1 p-2 ml-0"
+          type="email"
+          name="reply_to"
+          placeholder={language === LANGUAGES_SUPORTED.ESPAÑOL ?
+            "Tu correo electrónico"
+            :
+            "Your email"
+          }
+          value={formData.reply_to}
+          onChange={handleChange}
+        />
+
 
 
 
@@ -80,12 +93,18 @@ const handleChange = (e) => {
           className="col-12 m-1 bg-dark"
           style={{ minHeight: "200px", border: "solid 1px blue" }}
           name="message"
-          placeholder="Cuentame que es lo que deseas"
+          placeholder={language === LANGUAGES_SUPORTED.ESPAÑOL ?
+            "Cuenteme sobre el proyecto para el que necesita"
+            :
+            "Tell me about the project you need for"
+          }
           value={formData.message}
           onChange={handleChange}
         />
 
-        <button className="btn btn-dark" type="submit">{isSending ? "...Enviando" : "Enviar"}</button>
+
+        <button className="btn btn-dark col-12" type="submit">{language === LANGUAGES_SUPORTED.ESPAÑOL ? "Enviar" : "Send"}</button>
+
       </form>
 
 
