@@ -13,9 +13,12 @@ export function Project({photo_src,title,description,tecnologies_src,link}){
               </h5>
               <p className="card-text">{description}
               </p>
+              <div className="all">
                 {tecnologies_src&&tecnologies_src.map(tec=>(
-                    <img key={tec.src} src={tec.src} alt={tec.alt} className="mx-2" />
+                    tec
                 ))}
+              </div>
+                
             </div>
           </div>
     )

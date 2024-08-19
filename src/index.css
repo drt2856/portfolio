@@ -12,7 +12,7 @@
 }
 
 .wall {
-  min-height: 400px;
+  min-height: 500px;
   background-image: url(https://wallpapercave.com/wp/wp13535895.jpg);
   background-size: cover;
   /* Ajusta la imagen para cubrir todo el div background: linear-gradient(to bottom right, rgb(43 74 226 / 73%),blue, red);;*/
