@@ -39,7 +39,7 @@ function App() {
     {
       tittle: "EnCaja (demo)",
       photo_src: <img width="250" height="250" className="card-img-top mx-auto my-4" src={capturaEncaja} alt="external-snake-jungle-vitaliy-gorbachev-lineal-vitaly-gorbachev" />,
-      link: "https://drt2856.github.io/snakejs/",
+      link: "https://drt2856.github.io/demo-encaja/",
       description: language === LANGUAGES_SUPORTED.ESPAÑOL ?
         "Encaja (demo) se presenta ante usted como una sencilla solución para los emprendedores que hacen su cierre de ventas de esta forma tan particular. De hecho, nació para ayudar a uno de estos emprendedores que es amigo. Funciona tanto para el empleado como para el empleador. Está presentado de una manera minimalista, imitando a una libreta de notas para una mayor comodidad."
         :
